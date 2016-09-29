@@ -1,0 +1,67 @@
+<div ng-controller="playsController as PC">
+	<nav>
+		<div  class="nav-wrapper purple darken-4">
+			<a href="#/" class="brand-logo">Personality Test</a>
+			<ul class="right">
+			
+			</ul>
+		</div>
+	</nav>
+	<div class="container">
+		<div class="section row">
+			<h4>Hi {{PC.user_session.name}}</h4>
+			<h5>Choose an answer for each of the questions and submit the test once done.</h5>
+			<div class="section"></div>
+			<div class="col s6 offset-s3">		
+			<form>
+			<div>
+			<p>{{PC.questions[0].question}}</p>
+			<p>
+			<input type="radio" name='a1' id="q1a1" value={{PC.questions[0]._answers[0].value}} ng-model='PC.answers.one'/>
+			<label for="q1a1">{{PC.questions[0]._answers[0].answer}}</label>
+			</p>
+			<p>
+			<input type="radio" name='a1' id="q1a2" value={{PC.questions[0]._answers[1].value}} ng-model='PC.answers.one'/>
+			<label for="q1a2">{{PC.questions[0]._answers[1].answer}}</label>
+			</p>
+			<p>
+			<input type="radio" name='a1' id="q1a3" value={{PC.questions[0]._answers[2].value}} ng-model='PC.answers.one'/>
+			<label for="q1a3">{{PC.questions[0]._answers[2].answer}}</label>
+			</p>
+			</div>
+			<div>
+			<p>{{PC.questions[1].question}}</p>
+			<p>
+			<input type="radio" name='a2' id="q2a1" value={{PC.questions[1]._answers[0].value}} ng-model='PC.answers.two'/>
+			<label for="q2a1">{{PC.questions[1]._answers[0].answer}}</label>
+			</p>
+			<p>
+			<input type="radio" name='a2' id="q2a2" value={{PC.questions[1]._answers[1].value}} ng-model='PC.answers.two'/>
+			<label for="q2a2">{{PC.questions[1]._answers[1].answer}}</label>
+			</p>
+			<p>
+			<input type="radio" name='a2' id="q2a3" value={{PC.questions[1]._answers[2].value}} ng-model='PC.answers.two'/>
+			<label for="q2a3">{{PC.questions[1]._answers[2].answer}}</label>
+			</p>
+			</div>
+			<div>
+			<p>{{PC.questions[2].question}}</p>
+			<p>
+			<input type="radio" name='a3' id="q3a1" value={{PC.questions[2]._answers[0].value}} ng-model='PC.answers.three'/>
+			<label for="q3a1">{{PC.questions[2]._answers[0].answer}}</label>
+			</p>
+			<p>
+			<input type="radio" name='a3' id="q3a2" value={{PC.questions[2]._answers[1].value}} ng-model='PC.answers.three'/>
+			<label for="q3a2">{{PC.questions[2]._answers[1].answer}}</label>
+			</p>
+			<p>
+			<input type="radio" name='a3' id="q3a3" value={{PC.questions[2]._answers[2].value}} ng-model='PC.answers.three'/>
+			<label for="q3a3">{{PC.questions[2]._answers[2].answer}}</label>
+			</p>
+			</div>
+			<button class="btn waves-effect waves-light right" ng-click='PC.answer()'>Submit</button>
+			</form>
+			<a href="#/"><button class="btn waves-effect waves-light right">Cancel</button></a>
+		</div>
+	</div>
+</div>

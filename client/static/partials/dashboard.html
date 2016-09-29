@@ -1,0 +1,38 @@
+<div ng-controller="dashboardsController as DC">
+	<nav>
+		<div  class="nav-wrapper purple darken-4">
+			<a href="#/" class="brand-logo">Personality Test</a>
+			<ul class="right">
+				<li><a href="" ng-click ="DC.logout()">Logout</a></li>
+			</ul>
+		</div>
+	</nav>
+	<div class="container">
+		<div class="section row">
+			<h4>Hi {{DC.user_session.name}}</h4>
+			<div class="col s6 section purple lighten-4">
+				<button class="btn waves-effect waves-light" ng-click='DC.play()'>Play!</button>
+				<p>Click the button above to test your personailty.</p>
+			</div>
+		</div>
+
+		<div class="section row">
+			<input type="text" ng-model='filter_search' />
+		</div>
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Personality</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat='user in DC.Users | filter: filter_search | orderBy: "score"' >
+					<td>{{user.name}}</td>
+					<td>{{user.score}}</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+</div>

@@ -1,0 +1,33 @@
+<div ng-controller="questionsController as QC">
+	<nav>
+		<div  class="nav-wrapper purple darken-4">
+			<a href="#/" class="brand-logo">Personality Test Admin Page</a>
+			<ul class="right">
+				<li><a href="#/">Home</a></li>
+			</ul>
+		</div>
+	</nav>
+	<div class="container">
+		<div class="section row">
+			<h4>New Question</h4>
+			<form name="qForm">
+				<label>Question</label>
+				<label class='red-text' ng-show='qForm.question.$touched && qForm.question.$error.required'>The Question is required</label>
+				<label ng-show='qForm.question.$touched && qForm.question.$error.minlength'>The Question must be at least 15 characters.</label>
+				<input type="text" name='question' ng-model='QC.newQuestion.question' ng-minlength='15' required />
+				<label>Plant Answer</label>
+				<label ng-show='qForm.answer1.$touched && qForm.answer1.$error.required'>The plant answer is required</label>
+				<input type="text" name="answer1" ng-model='QC.newQuestion.answer1' required/>
+				<label>Zombie Answer</label>
+				<label ng-show='qForm.answer2.$touched && qForm.answer2.$error.required'>The zombie answer is required</label>
+				<input type="text" name="answer2" ng-model='QC.newQuestion.answer2' required />
+				<label>Human Answer</label>
+				<label ng-show='qForm.answer3.$touched && qForm.answer3.$error.required'>The human answer is required</label>
+				<input type="text" name="answer3" ng-model='QC.newQuestion.answer3' required />
+				<div>
+				<a href="#/"><button class="btn waves-effect waves-light red right">Cancel</button></a> <button ng-if="QC.newQuestion.question && QC.newQuestion.answer1 && QC.newQuestion.answer2 && QC.newQuestion.answer3" class="btn waves-effect waves-light purple lighten-2 right"  ng-click='QC.create()'>Add Question</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
